@@ -170,7 +170,7 @@ URL API dapat dikonfigurasi melalui environment variable `VITE_API_URL`.
 
 ## 📝 Scripts
 
-- `npm run dev` - Jalankan development server
+- `npm run dev` - Jalankan development server 
 - `npm run build` - Build untuk production
 - `npm run preview` - Preview build production
 
