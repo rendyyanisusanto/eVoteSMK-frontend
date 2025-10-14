@@ -58,7 +58,7 @@
         <h2 class="winner-title">KETUA OSIS TERPILIH</h2>
         <div class="winner-card">
           <img 
-            :src="winner.foto ? `http://localhost:3001/uploads/${winner.foto}` : defaultAvatar" 
+            :src="getCandidateImageUrl(winner.foto)" 
             :alt="winner.nama"
             class="winner-photo"
           >
@@ -96,7 +96,7 @@
             </div>
             
             <img 
-              :src="candidate.foto ? `http://localhost:3001/uploads/${candidate.foto}` : defaultAvatar" 
+              :src="getCandidateImageUrl(candidate.foto)" 
               :alt="candidate.nama"
               class="candidate-photo"
             >
@@ -153,6 +153,7 @@
 
 <script>
 import api from '@/services/api'
+import { getImageUrl, getDefaultAvatar } from '@/utils/url'
 
 export default {
   name: 'PublicResults',
@@ -168,7 +169,7 @@ export default {
       countdownTime: 5,
       refreshInterval: null,
       estimatedVoters: 500, // Estimasi jumlah pemilih
-      defaultAvatar: 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"%3E%3Crect width="100" height="100" fill="%23f8f9fa"/%3E%3Ctext x="50" y="55" text-anchor="middle" fill="%23666" font-size="12" font-family="Arial"%3ENo Photo%3C/text%3E%3C/svg%3E'
+
     }
   },
   computed: {
@@ -191,6 +192,10 @@ export default {
   },
   
   methods: {
+    getCandidateImageUrl(foto) {
+      return getImageUrl(foto) || getDefaultAvatar()
+    },
+    
     async processResults() {
       this.processing = true
       

@@ -66,7 +66,7 @@
             @click="selectCandidate(candidate)"
           >
             <img 
-              :src="candidate.foto ? `http://localhost:3001/uploads/${candidate.foto}` : '/placeholder-avatar.png'" 
+              :src="getCandidateImageUrl(candidate.foto)" 
               :alt="candidate.nama"
               class="candidate-photo"
               @error="handleImageError"
@@ -111,6 +111,7 @@
 
 <script>
 import api from '@/services/api'
+import { getImageUrl, getDefaultAvatar } from '@/utils/url'
 
 export default {
   name: 'Home',
@@ -189,8 +190,12 @@ export default {
       this.error = null
     },
     
+    getCandidateImageUrl(foto) {
+      return getImageUrl(foto) || getDefaultAvatar()
+    },
+    
     handleImageError(event) {
-      event.target.src = 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="120" height="120" viewBox="0 0 120 120"%3E%3Crect width="120" height="120" fill="%23f8f9fa"/%3E%3Ctext x="60" y="65" text-anchor="middle" fill="%23666" font-size="14" font-family="Arial"%3ENo Photo%3C/text%3E%3C/svg%3E'
+      event.target.src = getDefaultAvatar()
     }
   }
 }

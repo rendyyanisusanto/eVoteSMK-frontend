@@ -138,6 +138,7 @@
 
 <script>
 import api from '@/services/api'
+import { getImageUrl, getDefaultAvatar } from '@/utils/url'
 
 export default {
   name: 'AdminResults',
@@ -268,14 +269,11 @@ export default {
     },
     
     getImageUrl(foto) {
-      if (foto) {
-        return `http://localhost:3001/uploads/${foto}`
-      }
-      return 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgdmlld0JveD0iMCAwIDYwIDYwIj48cmVjdCB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIGZpbGw9IiNmOGY5ZmEiLz48dGV4dCB4PSIzMCIgeT0iMzMiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IiM2NjYiIGZvbnQtc2l6ZT0iMTIiIGZvbnQtZmFtaWx5PSJBcmlhbCI+Tm8gUGhvdG88L3RleHQ+PC9zdmc+'
+      return getImageUrl(foto) || getDefaultAvatar()
     },
     
     handleImageError(event) {
-      event.target.src = 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgdmlld0JveD0iMCAwIDYwIDYwIj48cmVjdCB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIGZpbGw9IiNmOGY5ZmEiLz48dGV4dCB4PSIzMCIgeT0iMzMiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IiM2NjYiIGZvbnQtc2l6ZT0iMTIiIGZvbnQtZmFtaWx5PSJBcmlhbCI+Tm8gUGhvdG88L3RleHQ+PC9zdmc+'
+      event.target.src = getDefaultAvatar()
     }
   }
 }
