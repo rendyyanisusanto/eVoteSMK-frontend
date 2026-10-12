@@ -35,12 +35,7 @@
           </div>
         </form>
         
-        <!-- Link Admin di pojok kanan bawah -->
-        <div style="position: fixed; bottom: 20px; right: 20px;">
-          <router-link to="/admin/login" style="color: #666; text-decoration: none; font-size: 12px;">
-            Admin
-          </router-link>
-        </div>
+
       </div>
 
       <!-- Step 2: Select Candidate -->

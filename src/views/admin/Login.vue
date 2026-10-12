@@ -45,13 +45,7 @@
           ← Kembali ke Beranda
         </router-link>
       </div>
-      
-      <!-- Default credentials info -->
-      <div style="margin-top: 40px; padding: 20px; background: #f8f9fa; border-radius: 8px; border-left: 4px solid #667eea;">
-        <h4 style="color: #667eea; margin-bottom: 10px;">Info Default Login:</h4>
-        <p style="margin: 5px 0;"><strong>Username:</strong> admin</p>
-        <p style="margin: 5px 0;"><strong>Password:</strong> admin123</p>
-      </div>
+
     </div>
   </div>
 </template>
